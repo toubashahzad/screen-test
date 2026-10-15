@@ -60,6 +60,9 @@ WCAG AA needs **4.5:1** for normal text and **3:1** for large text and control o
 | `color.allergen.border` | `amber.300` | Soft outline so the allergen tag reads as different even in grayscale. |
 | `color.allergen.fg` | `amber.800` | Allergen text and icon. 7.0:1 on the amber fill. Paired with an icon and the word "Contains", never colour alone. |
 | `color.focus` | `stone.900` | 2 pt focus ring for keyboard and switch-control users; works on every background in this file. |
+| `color.overlay` | black at 45% | Fill behind icon buttons on the photo, so white icons stay readable on any image. |
+| `color.overlayPressed` | black at 60% | Pressed state of those buttons. |
+| `color.onOverlay` | `white` | Icons on the overlay. |
 
 ## 2. Spacing
 
