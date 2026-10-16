@@ -42,7 +42,7 @@ Names a block of content so people can find their place again while cooking:
 - Collapsible headers are buttons with an "expanded / collapsed" state; tap area is the full row, at least 44 high.
 
 ## Do
-- Only "About this recipe" (description) is collapsible on this screen, and it starts collapsed.
+- Only "Nutrition" and "About this recipe" are collapsible on this screen, and both start collapsed.
 
 ## Don't
 - Don't make Ingredients, the allergen row or "You'll need" collapsible: they're the point of the screen.

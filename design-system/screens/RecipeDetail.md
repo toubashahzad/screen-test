@@ -31,10 +31,10 @@ spacing (section: `space.8` above / `space.4` below; group: `space.6` / `space.3
 | 12 | From your pantry | `SectionHeader level="group"` "From your pantry", meta "4 items"; then `IngredientRow variant="pantry"` list, `space.3` gaps | `recipe.fromYourPantry` | (header) |
 | 13 | Add to shopping list | `Button` secondary, `icon="basket"`, full width | – | `space.6` |
 | 14 | You'll need | `SectionHeader` "You'll need"; `Tag variant="equipment"` chips in a wrapping row, `space.2` gaps | `recipe.equipment` | (header) |
-| 15 | Steps | `SectionHeader` "Steps", meta "6 steps"; `Step` list, `space.6` gaps | `recipe.steps` | (header) |
+| 15 | Steps | `SectionHeader` "Steps", meta "7 steps"; `Step` list, `space.6` gaps. Short steps, one task each (content.md) | `recipe.steps` | (header) |
 | 16 | Mark as cooked | `Button` secondary, `icon="check"` | – | `space.6` |
-| 17 | Nutrition | `SectionHeader` "Nutrition"; `NutritionRow` list ("of which" rows use `ofWhich`) | `recipe.nutrition` | (header) |
-| 18 | Add to Health | `Button` secondary, `icon="health"` | – | `space.6` |
+| 17 | Nutrition | `SectionHeader` "Nutrition", meta "654 kcal", collapsible, **starts collapsed**; when expanded, `NutritionRow` list ("of which" rows use `ofWhich`) | `recipe.nutrition`, `recipe.nutritionSummary` | (header) |
+| 18 | Add to Health | Inside the expanded Nutrition section: `Button` secondary, `icon="health"` | – | `space.6` |
 | 19 | My cookbook photos | `SectionHeader` "My cookbook photos" (meta "1 photo" / "N photos" once there are any); picked photos as `Image` thumbnails `size.image.cookbook`, `radius.md`, wrapping row, `space.2` gaps, `space.4` below | photos picked this session | (header) |
 | 20 | Add a photo | `Button` secondary, `icon="camera"` | – | 0 (or `space.4` below the thumbnails) |
 | 21 | About this recipe | `SectionHeader` "About this recipe", collapsible, **starts collapsed**; when expanded, `Text` `type.body`, `color.text.primary` | `recipe.description` | (header) |
@@ -54,16 +54,17 @@ The scroll content ends with `space.12` bottom padding so nothing hides behind t
 | Mark as cooked | Not built yet (needs an account). |
 | Add to Health | Not built yet (needs Apple Health / Health Connect). |
 | Add a photo | Opens the photo library; picked photos appear under "My cookbook photos" for this session. |
-| About this recipe | Tap the header to expand / collapse. |
+| About this recipe, Nutrition | Tap the header to expand / collapse. |
 | Let's cook | Not built yet (opens cook mode). |
 
 Nutrition values are shown as given and **do not** scale with servings (content.md doesn't say what
 they are per).
 
 ## States
-- **Default:** servings 2, About collapsed, not saved, no cookbook photos.
+- **Default:** servings 2, Nutrition and About collapsed, not saved, no cookbook photos.
 - **Changed servings (1–6):** all amounts update; minus disabled at 1, plus disabled at 6.
 - **Saved:** filled bookmark; screen readers hear "Saved, double-tap to remove".
+- **Nutrition expanded:** the table and "Add to Health" shown; chevron points up.
 - **About expanded:** description shown under its header; chevron points up.
 - **With cookbook photos:** thumbnails above "Add a photo", count in the header meta.
 - **Photo loading or missing:** the photo area shows `color.bg.subtle`.
@@ -86,7 +87,8 @@ they are per).
 ## Don't
 - Don't show bracketed amounts ("300 ml [600 ml]") anywhere, including the steps.
 - Don't add a second entry into cook mode or a second "Add to shopping list".
-- Don't make Ingredients, the allergen row, "You'll need" or Steps collapsible.
+- Don't make Ingredients, the allergen row, "You'll need" or Steps collapsible. Only Nutrition and About are.
+- Don't let an amount break across lines in a step ("½" / "tbsp").
 - Don't add content that isn't in `docs/content.md`.
 
 ## Change log

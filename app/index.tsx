@@ -33,7 +33,7 @@ const notBuiltYet = () => {};
 /**
  * Recipe detail screen. Order (CLAUDE.md):
  * photo with Back / Save / Share → title, subtitle → total time, difficulty → allergen row → recipe tags →
- * Ingredients → "You'll need" → Steps → Mark as cooked → Nutrition → Add to Health →
+ * Ingredients → "You'll need" → Steps → Mark as cooked → Nutrition (collapsed, with Add to Health) →
  * My cookbook photos → "About this recipe" (collapsed) → sticky "Let's cook".
  */
 export default function RecipeScreen() {
@@ -41,6 +41,7 @@ export default function RecipeScreen() {
   const [servings, setServings] = useState(BASE_SERVINGS);
   const [saved, setSaved] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [nutritionOpen, setNutritionOpen] = useState(false);
   const [photos, setPhotos] = useState<string[]>([]);
 
   const goBack = () => {
@@ -193,16 +194,26 @@ export default function RecipeScreen() {
             <Button label="Mark as cooked" icon="check" onPress={notBuiltYet} />
           </View>
 
-          {/* Nutrition */}
-          <SectionHeader title="Nutrition" />
-          <View>
-            {recipe.nutrition.map((n) => (
-              <NutritionRow key={n.label} label={n.label} value={n.value} ofWhich={n.ofWhich} />
-            ))}
-          </View>
-          <View style={{ marginTop: space[6] }}>
-            <Button label="Add to Health" icon="health" onPress={notBuiltYet} />
-          </View>
+          {/* Nutrition: collapsed by default; "Add to Health" belongs to it */}
+          <SectionHeader
+            title="Nutrition"
+            meta={recipe.nutritionSummary}
+            collapsible
+            expanded={nutritionOpen}
+            onToggle={() => setNutritionOpen((open) => !open)}
+          />
+          {nutritionOpen && (
+            <>
+              <View>
+                {recipe.nutrition.map((n) => (
+                  <NutritionRow key={n.label} label={n.label} value={n.value} ofWhich={n.ofWhich} />
+                ))}
+              </View>
+              <View style={{ marginTop: space[6] }}>
+                <Button label="Add to Health" icon="health" onPress={notBuiltYet} />
+              </View>
+            </>
+          )}
 
           {/* My cookbook photos */}
           <SectionHeader

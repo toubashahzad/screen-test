@@ -41,6 +41,8 @@ export type Recipe = {
   equipment: Equipment[];
   steps: StepPart[][];
   nutrition: NutritionItem[];
+  /** Shown next to the collapsed Nutrition header. */
+  nutritionSummary: string;
 };
 
 export const recipe: Recipe = {
@@ -88,46 +90,34 @@ export const recipe: Recipe = {
     { name: 'Small bowl', icon: 'bowl' },
     { name: 'Kitchen paper', icon: 'paper' },
   ],
-  // Steps from content.md, word for word, except "300 ml [600 ml]"-style brackets: amounts are stored
-  // for 2 servings and follow the stepper.
+  // Steps from content.md (shortened 2026-10-16: one task per step, obvious prep like washing left out).
+  // Amounts are stored for 2 servings and follow the stepper.
   steps: [
     [
-      'Wash the vegetables, herbs and meat and pat the meat dry with kitchen paper. Heat ',
+      'Boil ',
       { quantity: 300, unit: 'ml' },
-      ' water in the kettle. You will also need 1 small pot (with lid), kitchen paper, 1 large pan and ' +
-        '1 small bowl. Put ',
-      { quantity: 300, unit: 'ml' },
-      ' hot water into a small pot, salt it, bring to the boil once, add the basmati rice and simmer, ' +
-        'covered, over low heat for approx. 10 min. Trim the ends of the sugar snap peas and cut into ' +
-        '0.5 cm pieces. When the rice is done, add the sugar snap pieces and leave both to steep, covered, ' +
-        'for another 10 min.',
+      ' water in the kettle. Pour it into a small pot, salt it and add the rice. Cover and simmer on low ' +
+        'heat for 10 min.',
     ],
+    ['Cut the sugar snap peas into 0.5 cm pieces. Add them to the rice, cover and let steep for 10 min.'],
+    ['Cut the zucchini into 0.5 cm half-moons and the onion into thin strips.'],
     [
-      'Trim the ends of the zucchini, halve it lengthwise and cut into approx. 0.5 cm thick half-moons. ' +
-        'Peel the onion, halve it and cut into thin strips.',
-    ],
-    [
-      'Press the chicken breasts a little flatter with the heel of your hand and season both sides with ' +
-        'salt and pepper. Heat ',
+      'Flatten the chicken a little and season with salt and pepper. Fry in ',
       { quantity: 0.5, unit: 'tbsp' },
-      ' oil in a large pan over medium heat and fry the chicken for 7–8 min. on each side. Remove from ' +
-        'the pan and keep warm.',
+      ' oil in a large pan over medium heat, 7–8 min per side. Set aside and keep warm.',
     ],
+    ['Chop the parsley. In a small bowl, mix ⅔ of it with the yoghurt, mustard to taste, salt and pepper.'],
     [
-      'Pick the parsley leaves and chop finely. In a small bowl, mix ⅔ of the parsley, salt, pepper, ' +
-        'mustard to taste and the yoghurt well.',
-    ],
-    [
-      'Wipe out the pan with kitchen paper, heat ',
+      'Wipe the pan. Fry the onion and zucchini in ',
       { quantity: 1, unit: 'tbsp' },
-      ' oil again over medium heat and fry the onion strips and zucchini pieces for 5–6 min. Season with ' +
-        "za'atar, salt and pepper. Return the chicken to the pan to keep it warm.",
+      " oil over medium heat for 5–6 min. Season with za'atar, salt and pepper. Return the chicken to keep " +
+        'it warm.',
     ],
     [
-      'Once cooked, fluff up the sugar snap basmati rice a little with a fork, then stir in ',
+      'Fluff the rice with a fork and stir in ',
       { quantity: 0.5, unit: 'tbsp' },
-      ' butter and divide between plates. Arrange the chicken and zucchini vegetables alongside, garnish ' +
-        'with the parsley-mustard yoghurt and sprinkle with the remaining parsley. Enjoy your meal!',
+      ' butter. Serve with the chicken and vegetables, topped with the parsley yoghurt and the remaining ' +
+        'parsley.',
     ],
   ],
   // content.md doesn't say whether these are per serving, so they don't scale (docs/decisions.md).
@@ -141,6 +131,7 @@ export const recipe: Recipe = {
     { label: 'Protein', value: '50 g' },
     { label: 'Salt', value: '2 g' },
   ],
+  nutritionSummary: '654 kcal',
 };
 
 // ─── Scaling ─────────────────────────────────────────────────────────────────
@@ -184,5 +175,6 @@ export function scaleAmount(amount: Amount, servings: number): string {
 
 /** A step's text for the chosen servings: "Heat 300 ml water…" at 2, "Heat 600 ml water…" at 4. */
 export function stepText(parts: StepPart[], servings: number): string {
-  return parts.map((p) => (typeof p === 'string' ? p : scaleAmount(p, servings))).join('');
+  // A non-breaking space keeps "½ tbsp" together on one line.
+  return parts.map((p) => (typeof p === 'string' ? p : scaleAmount(p, servings).replace(' ', '\u00A0'))).join('');
 }

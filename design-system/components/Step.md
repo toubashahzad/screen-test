@@ -12,7 +12,7 @@ One cooking step. Amounts in the text follow the servings stepper, so nobody doe
 | Prop | Type | Default | Notes |
 |---|---|---|---|
 | `number` | number | — | Required. 1, 2, 3 … |
-| `text` | text | — | Required. From content.md, with amounts already scaled. |
+| `text` | text | — | Required. From content.md, with amounts already scaled and kept on one line. |
 
 ## Layout
 - Row, top-aligned. Number circle → text gap `space.3`.
@@ -32,7 +32,7 @@ Static. (Ticking off steps belongs to cook mode.)
 - Read as one item: "Step 3. Press the chicken breasts…".
 
 ## Do
-- Keep the original wording from content.md; only replace bracketed amounts with the scaled amount.
+- Use the step wording from content.md: short, one task per step, no obvious prep (washing).
 
 ## Don't
 - Don't show amounts for other serving sizes in brackets.
