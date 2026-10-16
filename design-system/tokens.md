@@ -96,6 +96,8 @@ Size tokens:
 | `size.icon.default` | 24 | IconButton, stepper, chevron and equipment icons. *(Added)* |
 | `size.iconButton.onPhoto` | 40 | Visible circle of the photo's icon buttons; the tap area stays 44. *(Added)* |
 | `size.stepper.value` | 56 | Width of the stepper's number area; fits "6" at large text sizes. *(Added)* |
+| `size.image.cookbook` | 88 | Thumbnails in "My cookbook photos". *(Added)* |
+| `size.step.number` | 32 | Step-number circle; fits two digits at large text. *(Added)* |
 | `size.image.hero` | 200 | Hero photo height. Short enough that the first ingredient shows on the first screen. *(Added)* |
 
 *Tokens marked "Added" were introduced while building the screen on 2026-10-16; reasons in
@@ -120,7 +122,7 @@ Size tokens:
 
 | Token | Font | Size / line height | Use | Why |
 |---|---|---|---|---|
-| `type.title` | Bricolage Grotesque Bold | 26 / 32 | Recipe title | Clear hierarchy; the only text this large on the screen. |
+| `type.title` | Bricolage Grotesque Bold | 22 / 28 | Recipe title | Clear hierarchy; the only text this large on the screen. Was 26 / 32; reduced on 2026-10-16 so long titles take less room. |
 | `type.heading` | Bricolage Grotesque Bold | 20 / 26 | Section headers ("In your box") | Easy to spot when scanning back while cooking. |
 | `type.body` | Inter Regular | 17 / 24 | Subtitle, description, steps | 17 pt is the iOS default body size; comfortable reading distance. |
 | `type.label` | Inter SemiBold | 15 / 20 | Ingredient names, button labels | Names should stand out from their amounts. |

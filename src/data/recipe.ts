@@ -24,17 +24,23 @@ import type { EquipmentIcon } from '../theme/icons';
 
 export type Equipment = { name: string; icon: EquipmentIcon };
 
+/** A piece of step text, or an amount that follows the servings stepper. */
+export type StepPart = string | { quantity: number; unit: Unit };
+export type NutritionItem = { label: string; value: string; ofWhich?: boolean };
+
 export type Recipe = {
   title: string;
   subtitle: string;
   totalTime: string;
   difficulty: string;
   tags: string[];
-  allergens: { names: string[]; details: string[]; note: string };
+  allergens: { names: string[]; rowItems: string[]; mayContain: string; note: string };
   description: string;
   inYourBox: Ingredient[];
   fromYourPantry: Ingredient[];
   equipment: Equipment[];
+  steps: StepPart[][];
+  nutrition: NutritionItem[];
 };
 
 export const recipe: Recipe = {
@@ -45,10 +51,12 @@ export const recipe: Recipe = {
   // The original's "SEO" tag is left out; it looks like an internal label.
   tags: ['High Protein', 'Something different'],
   allergens: {
-    /** Short names for the allergen row: "Contains: Milk · Mustard". */
+    /** Short names, used for the ingredient markers. */
     names: ['Milk', 'Mustard'],
-    /** Full wording from content.md, shown under the allergen row. */
-    details: ['Milk (incl. lactose)', 'May contain traces of other allergens'],
+    /** The allergen row: "Contains: Milk (incl. lactose) · Mustard". */
+    rowItems: ['Milk (incl. lactose)', 'Mustard'],
+    /** Shown once, under the allergen row. */
+    mayContain: 'May contain traces of other allergens.',
     note: 'Please also check the ingredient and allergen information on the product label.',
   },
   // content.md cuts the description off ("… Read more"); this is all the text there is.
@@ -79,6 +87,59 @@ export const recipe: Recipe = {
     { name: 'Large pan', icon: 'pan' },
     { name: 'Small bowl', icon: 'bowl' },
     { name: 'Kitchen paper', icon: 'paper' },
+  ],
+  // Steps from content.md, word for word, except "300 ml [600 ml]"-style brackets: amounts are stored
+  // for 2 servings and follow the stepper.
+  steps: [
+    [
+      'Wash the vegetables, herbs and meat and pat the meat dry with kitchen paper. Heat ',
+      { quantity: 300, unit: 'ml' },
+      ' water in the kettle. You will also need 1 small pot (with lid), kitchen paper, 1 large pan and ' +
+        '1 small bowl. Put ',
+      { quantity: 300, unit: 'ml' },
+      ' hot water into a small pot, salt it, bring to the boil once, add the basmati rice and simmer, ' +
+        'covered, over low heat for approx. 10 min. Trim the ends of the sugar snap peas and cut into ' +
+        '0.5 cm pieces. When the rice is done, add the sugar snap pieces and leave both to steep, covered, ' +
+        'for another 10 min.',
+    ],
+    [
+      'Trim the ends of the zucchini, halve it lengthwise and cut into approx. 0.5 cm thick half-moons. ' +
+        'Peel the onion, halve it and cut into thin strips.',
+    ],
+    [
+      'Press the chicken breasts a little flatter with the heel of your hand and season both sides with ' +
+        'salt and pepper. Heat ',
+      { quantity: 0.5, unit: 'tbsp' },
+      ' oil in a large pan over medium heat and fry the chicken for 7–8 min. on each side. Remove from ' +
+        'the pan and keep warm.',
+    ],
+    [
+      'Pick the parsley leaves and chop finely. In a small bowl, mix ⅔ of the parsley, salt, pepper, ' +
+        'mustard to taste and the yoghurt well.',
+    ],
+    [
+      'Wipe out the pan with kitchen paper, heat ',
+      { quantity: 1, unit: 'tbsp' },
+      ' oil again over medium heat and fry the onion strips and zucchini pieces for 5–6 min. Season with ' +
+        "za'atar, salt and pepper. Return the chicken to the pan to keep it warm.",
+    ],
+    [
+      'Once cooked, fluff up the sugar snap basmati rice a little with a fork, then stir in ',
+      { quantity: 0.5, unit: 'tbsp' },
+      ' butter and divide between plates. Arrange the chicken and zucchini vegetables alongside, garnish ' +
+        'with the parsley-mustard yoghurt and sprinkle with the remaining parsley. Enjoy your meal!',
+    ],
+  ],
+  // content.md doesn't say whether these are per serving, so they don't scale (docs/decisions.md).
+  nutrition: [
+    { label: 'Energy', value: '2736 kJ · 654 kcal' },
+    { label: 'Fat', value: '17 g' },
+    { label: 'of which saturates', value: '7 g', ofWhich: true },
+    { label: 'Carbohydrates', value: '74 g' },
+    { label: 'of which sugars', value: '11 g', ofWhich: true },
+    { label: 'Fibre', value: '6 g' },
+    { label: 'Protein', value: '50 g' },
+    { label: 'Salt', value: '2 g' },
   ],
 };
 
@@ -119,4 +180,9 @@ export function scaleAmount(amount: Amount, servings: number): string {
       return `${formatQuarters(q)} ${q > 1 ? 'pieces' : 'piece'}`;
     }
   }
+}
+
+/** A step's text for the chosen servings: "Heat 300 ml water…" at 2, "Heat 600 ml water…" at 4. */
+export function stepText(parts: StepPart[], servings: number): string {
+  return parts.map((p) => (typeof p === 'string' ? p : scaleAmount(p, servings))).join('');
 }

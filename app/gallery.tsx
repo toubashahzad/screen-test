@@ -3,12 +3,15 @@ import { ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button } from '../src/components/Button';
 import { IconButton } from '../src/components/IconButton';
+import { InfoItem } from '../src/components/InfoItem';
+import { NutritionRow } from '../src/components/NutritionRow';
+import { Step } from '../src/components/Step';
 import { IngredientRow } from '../src/components/IngredientRow';
 import { SectionHeader } from '../src/components/SectionHeader';
 import { ServingStepper } from '../src/components/ServingStepper';
 import { StickyCTA } from '../src/components/StickyCTA';
 import { Tag } from '../src/components/Tag';
-import { recipe } from '../src/data/recipe';
+import { recipe, stepText } from '../src/data/recipe';
 import { color, space, type } from '../src/theme/tokens';
 
 const noop = () => {};
@@ -132,6 +135,13 @@ export default function Gallery() {
         <Example name="secondary · lg">
           <Button size="lg" label="Add to shopping list" onPress={noop} />
         </Example>
+        <Example name="secondary · icons: check, health, camera">
+          <View style={{ gap: space[2] }}>
+            <Button label="Mark as cooked" icon="check" onPress={noop} />
+            <Button label="Add to Health" icon="health" onPress={noop} />
+            <Button label="Add a photo" icon="camera" onPress={noop} />
+          </View>
+        </Example>
         <Example name="secondary · md · fullWidth false">
           <Button label="Add to shopping list" icon="basket" fullWidth={false} onPress={noop} />
         </Example>
@@ -213,6 +223,34 @@ export default function Gallery() {
         <Example name="section · collapsible, expanded">
           <View>
             <SectionHeader title="About this recipe" collapsible expanded onToggle={noop} />
+          </View>
+        </Example>
+      </Section>
+
+      <Section title="InfoItem">
+        <Example name="time and difficulty">
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: space[6] }}>
+            <InfoItem icon="time" label="Total time" value={recipe.totalTime} />
+            <InfoItem icon="difficulty" label="Difficulty" value={recipe.difficulty} />
+          </View>
+        </Example>
+      </Section>
+
+      <Section title="Step">
+        <Example name="short step">
+          <Step number={2} text={stepText(recipe.steps[1], 2)} />
+        </Example>
+        <Example name="step with scaled amounts (4 servings)">
+          <Step number={3} text={stepText(recipe.steps[2], 4)} />
+        </Example>
+      </Section>
+
+      <Section title="NutritionRow">
+        <Example name="row, of-which row">
+          <View>
+            <NutritionRow label="Fat" value="17 g" />
+            <NutritionRow label="of which saturates" value="7 g" ofWhich />
+            <NutritionRow label="Energy" value="2736 kJ · 654 kcal" />
           </View>
         </Example>
       </Section>

@@ -94,7 +94,9 @@ export const size = {
   image: {
     ingredient: 40,
     hero: 200, // Added: hero photo height (shortened from 280 so ingredients start sooner)
+    cookbook: 88, // Added: thumbnails in "My cookbook photos"
   },
+  step: { number: 32 }, // Added: step-number circle
   cta: { height: 52 },
   button: { md: 48 }, // Added: Button md height
   tag: { md: 28, sm: 22 }, // Added: Tag heights (used as minimum heights)
@@ -126,7 +128,7 @@ export const font = {
 } as const;
 
 export const type = {
-  title: { fontFamily: font.family.headingBold, fontSize: 26, lineHeight: 32 },
+  title: { fontFamily: font.family.headingBold, fontSize: 22, lineHeight: 28 }, // was 26/32 (decisions.md)
   heading: { fontFamily: font.family.headingBold, fontSize: 20, lineHeight: 26 },
   body: { fontFamily: font.family.bodyRegular, fontSize: 17, lineHeight: 24 },
   label: { fontFamily: font.family.bodySemiBold, fontSize: 15, lineHeight: 20 },
