@@ -1,6 +1,6 @@
 # CLAUDE.md: rules for building this repo
 
-You are building **one screen**: a recipe detail screen (top half), as an Expo / React Native app in
+You are building **one screen**: a recipe detail screen (the full page), as an Expo / React Native app in
 TypeScript. The point of the project is to show that **design tokens and component specs drive the UI**.
 So the rules below matter more than speed or cleverness.
 
