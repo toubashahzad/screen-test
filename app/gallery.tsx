@@ -3,6 +3,7 @@ import { ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button } from '../src/components/Button';
 import { IconButton } from '../src/components/IconButton';
+import { IngredientRow } from '../src/components/IngredientRow';
 import { ServingStepper } from '../src/components/ServingStepper';
 import { Tag } from '../src/components/Tag';
 import { color, space, type } from '../src/theme/tokens';
@@ -131,6 +132,35 @@ export default function Gallery() {
         </Example>
         <Example name="At max (6): plus disabled">
           <ServingStepper value={6} onChange={noop} />
+        </Example>
+      </Section>
+
+      <Section title="IngredientRow">
+        <Example name="box · placeholder photo · name + amount">
+          <IngredientRow name="Chicken breast" amount="2 pieces" />
+        </Example>
+        <Example name="box · with allergen marker">
+          <IngredientRow name="Yoghurt" amount="150 g" allergen="Milk" />
+        </Example>
+        <Example name="box · long name with allergen marker">
+          <IngredientRow name="Medium-hot mustard" amount="10 ml" allergen="Mustard" />
+        </Example>
+        <Example name="pantry · fraction amount with allergen marker">
+          <IngredientRow variant="pantry" name="Butter" amount="½ tbsp" allergen="Milk" />
+        </Example>
+        <Example name="pantry · to taste">
+          <IngredientRow variant="pantry" name="Salt" amount="to taste" />
+        </Example>
+        <Example name="equipment">
+          <IngredientRow variant="equipment" name="Small pot with lid" />
+        </Example>
+        <Example name="List: rows separated by space.3, no dividers">
+          <View style={{ gap: space[3] }}>
+            <IngredientRow variant="pantry" name="Oil" amount="1½ tbsp" />
+            <IngredientRow variant="pantry" name="Butter" amount="½ tbsp" allergen="Milk" />
+            <IngredientRow variant="pantry" name="Salt" amount="to taste" />
+            <IngredientRow variant="pantry" name="Pepper" amount="to taste" />
+          </View>
         </Example>
       </Section>
     </ScrollView>
