@@ -124,7 +124,7 @@ Size tokens:
 |---|---|---|---|---|
 | `type.title` | Bricolage Grotesque Bold | 22 / 28 | Recipe title | Clear hierarchy; the only text this large on the screen. Was 26 / 32; reduced on 2026-10-16 so long titles take less room. |
 | `type.heading` | Bricolage Grotesque Bold | 20 / 26 | Section headers ("In your box") | Easy to spot when scanning back while cooking. |
-| `type.body` | Inter Regular | 17 / 24 | Subtitle, description, steps | 17 pt is the iOS default body size; comfortable reading distance. |
+| `type.body` | Inter Regular | 16 / 24 | Description, steps | Comfortable at arm's length while cooking; reduced from 17 on 2026-10-16 so steps take fewer lines. The 24 line height keeps it airy. |
 | `type.label` | Inter SemiBold | 15 / 20 | Ingredient names, button labels | Names should stand out from their amounts. |
 | `type.meta` | Inter Regular | 15 / 20 | Amounts, time, difficulty | Same size as labels, lighter weight and secondary colour, so the pair reads as one unit. |
 | `type.tag` | Inter Medium | 13 / 16 | Tags, allergen tag | Small but not tiny; 13 pt is the smallest size used. |

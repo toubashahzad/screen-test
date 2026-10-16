@@ -51,7 +51,25 @@ Amounts scale with the serving stepper (2 → 4 doubles them).
 
 Kettle · Small pot with lid · Large pan · Small bowl · Kitchen paper
 
-## Steps (original, translated; in the build since 2026-10-16, amounts without brackets, scaled to servings)
+## Steps (in the build; shortened 2026-10-16)
+
+Rewritten to one task per step. Obvious prep (washing vegetables, herbs and meat; patting dry) is left
+out. Amounts are for 2 servings and scale with the stepper; no bracketed amounts.
+
+1. Boil 300 ml water in the kettle. Pour it into a small pot, salt it and add the rice. Cover and simmer
+   on low heat for 10 min.
+2. Cut the sugar snap peas into 0.5 cm pieces. Add them to the rice, cover and let steep for 10 min.
+3. Cut the zucchini into 0.5 cm half-moons and the onion into thin strips.
+4. Flatten the chicken a little and season with salt and pepper. Fry in ½ tbsp oil in a large pan over
+   medium heat, 7–8 min per side. Set aside and keep warm.
+5. Chop the parsley. In a small bowl, mix ⅔ of it with the yoghurt, mustard to taste, salt and pepper.
+6. Wipe the pan. Fry the onion and zucchini in 1 tbsp oil over medium heat for 5–6 min. Season with
+   za'atar, salt and pepper. Return the chicken to keep it warm.
+7. Fluff the rice with a fork and stir in ½ tbsp butter. Serve with the chicken and vegetables, topped
+   with the parsley yoghurt and the remaining parsley.
+
+<details>
+<summary>Original steps (translated from the app, for reference)</summary>
 
 1. Wash the vegetables, herbs and meat and pat the meat dry with kitchen paper. Heat 300 ml [600 ml] water
    in the kettle. You will also need 1 small pot (with lid), kitchen paper, 1 large pan and 1 small bowl.
@@ -72,6 +90,8 @@ Kettle · Small pot with lid · Large pan · Small bowl · Kitchen paper
 6. Once cooked, fluff up the sugar snap basmati rice a little with a fork, then stir in ½ tbsp [1 tbsp]
    butter and divide between plates. Arrange the chicken and zucchini vegetables alongside, garnish with the
    parsley-mustard yoghurt and sprinkle with the remaining parsley. Enjoy your meal!
+
+</details>
 
 ## Lower on the page (in the build since 2026-10-16)
 

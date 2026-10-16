@@ -130,7 +130,7 @@ export const font = {
 export const type = {
   title: { fontFamily: font.family.headingBold, fontSize: 22, lineHeight: 28 }, // was 26/32 (decisions.md)
   heading: { fontFamily: font.family.headingBold, fontSize: 20, lineHeight: 26 },
-  body: { fontFamily: font.family.bodyRegular, fontSize: 17, lineHeight: 24 },
+  body: { fontFamily: font.family.bodyRegular, fontSize: 16, lineHeight: 24 }, // was 17/24 (decisions.md)
   label: { fontFamily: font.family.bodySemiBold, fontSize: 15, lineHeight: 20 },
   meta: { fontFamily: font.family.bodyRegular, fontSize: 15, lineHeight: 20 },
   tag: { fontFamily: font.family.bodyMedium, fontSize: 13, lineHeight: 16 },
