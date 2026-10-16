@@ -4,7 +4,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button } from '../src/components/Button';
 import { IconButton } from '../src/components/IconButton';
 import { IngredientRow } from '../src/components/IngredientRow';
+import { SectionHeader } from '../src/components/SectionHeader';
 import { ServingStepper } from '../src/components/ServingStepper';
+import { StickyCTA } from '../src/components/StickyCTA';
 import { Tag } from '../src/components/Tag';
 import { color, space, type } from '../src/theme/tokens';
 
@@ -18,6 +20,7 @@ export default function Gallery() {
   const insets = useSafeAreaInsets();
   const [saved, setSaved] = useState(false);
   const [servings, setServings] = useState(2);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   return (
     <ScrollView
@@ -161,6 +164,54 @@ export default function Gallery() {
             <IngredientRow variant="pantry" name="Salt" amount="to taste" />
             <IngredientRow variant="pantry" name="Pepper" amount="to taste" />
           </View>
+        </Example>
+      </Section>
+
+      <Section title="SectionHeader">
+        <Example name="section (includes space.8 above, space.4 below)">
+          <View>
+            <SectionHeader title="Ingredients" />
+          </View>
+        </Example>
+        <Example name="group · with meta (space.6 above, space.3 below)">
+          <View>
+            <SectionHeader level="group" title="In your box" meta="9 items" />
+          </View>
+        </Example>
+        <Example name="group · no meta">
+          <View>
+            <SectionHeader level="group" title="From your pantry" />
+          </View>
+        </Example>
+        <Example name="section · collapsible (tap to toggle)">
+          <View>
+            <SectionHeader
+              title="About this recipe"
+              collapsible
+              expanded={aboutOpen}
+              onToggle={() => setAboutOpen((o) => !o)}
+            />
+            {aboutOpen && (
+              <Text style={[type.body, { color: color.text.primary }]}>
+                Today a light dish is waiting to surprise you right on time for the new year, after the last few
+                days of festive feasting. Basmati rice with sugar snap peas is the side,…
+              </Text>
+            )}
+          </View>
+        </Example>
+        <Example name="section · collapsible, expanded">
+          <View>
+            <SectionHeader title="About this recipe" collapsible expanded onToggle={noop} />
+          </View>
+        </Example>
+      </Section>
+
+      <Section title="StickyCTA">
+        <Example name="Bar with Button (primary, lg); shown inline here, sticky on the screen">
+          <StickyCTA onPress={noop} />
+        </Example>
+        <Example name="With one-time hint">
+          <StickyCTA hint="Step-by-step with timers" onPress={noop} />
         </Example>
       </Section>
     </ScrollView>
