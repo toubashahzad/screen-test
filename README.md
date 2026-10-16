@@ -19,7 +19,13 @@ using only the tokens and components defined in this repo.
 | [`design-system/tokens.md`](design-system/tokens.md) | Colour, spacing, radius, type and elevation tokens, each with a reason |
 | [`design-system/components/`](design-system/components/) | One spec per component: Tag, IconButton, ServingStepper, IngredientRow, SectionHeader, StickyCTA, Button |
 | [`CLAUDE.md`](CLAUDE.md) | Rules Claude Code follows: build only from tokens and components |
-| `app/` | The coded screen *(coming)* |
+| `app/index.tsx` | The coded recipe screen (top half) |
+| `app/gallery.tsx` | Component gallery: every component in every variant and state |
+| `src/theme/tokens.ts` | All token values in code (palette, then semantic) |
+| `src/components/` | The 7 components, one file each |
+| `src/data/recipe.ts` | The recipe content, with amounts for 2 servings and the scaling function |
+| [`docs/decisions.md`](docs/decisions.md) | Design decisions that weren't in the specs |
+| `screenshots/` | Screenshots of the screen and the gallery |
 
 ## Process
 
@@ -29,3 +35,29 @@ using only the tokens and components defined in this repo.
 4. Write the rules for Claude Code
 5. Build the screen with Claude Code
 6. Reflect: what the system made easy, and what it didn't
+
+## How to run
+
+You need [Node.js](https://nodejs.org) (version 20 or newer).
+
+```bash
+npm install
+npm start          # then scan the QR code with the Expo Go app on your phone
+npm run web        # or open it in the browser
+```
+
+- The recipe screen is the home page. The component gallery is at `/gallery`
+  (in the browser: `http://localhost:8081/gallery`).
+- The dish photo (`assets/hero.jpg`) is a free stand-in from Wikimedia Commons, see [Credits](#credits).
+
+Checks (both must pass before any change is merged):
+
+```bash
+npx tsc --noEmit        # type check
+npm run check:tokens    # fails on any colour code or raw style number outside src/theme/
+```
+
+## Credits
+
+Dish photo: [Parboiled rice with chicken, peppers, cucurbita, peas and tomato](https://commons.wikimedia.org/wiki/File:Parboiled_rice_with_chicken,_peppers,_cucurbita,_peas_and_tomato.jpg)
+by Petar Milošević, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons. Details in [`assets/CREDITS.md`](assets/CREDITS.md).

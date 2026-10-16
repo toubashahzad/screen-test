@@ -53,9 +53,10 @@ Don't improvise a new colour, size, component or variant.
 - Fonts: Bricolage Grotesque and Inter via `@expo-google-fonts`.
 - Icons: one icon set only, `MaterialCommunityIcons` from `@expo/vector-icons`, outline style.
   Mapping: back `arrow-left` · share `share-variant-outline` · save `bookmark-outline` / saved `bookmark` ·
-  shopping list `basket-outline` · allergen `alert-circle-outline` · equipment `pot-steam-outline` ·
+  shopping list `basket-outline` · allergen `alert-circle-outline` · equipment: kettle `kettle-outline`,
+  pot `pot-steam-outline`, pan `pot-mix-outline`, bowl `bowl-outline`, kitchen paper `paper-roll-outline` ·
   minus `minus` · plus `plus` · chevron `chevron-down` / `chevron-up`.
-- Images: the hero photo is `assets/hero.jpg` (supplied by the designer). Until real ingredient photos exist,
+- Images: the hero photo is `assets/hero.jpg` (supplied by the designer; for now a credited free stand-in, see `assets/CREDITS.md`). Until real ingredient photos exist,
   `IngredientRow` shows a placeholder: a circle in `color.bg.subtle` with the ingredient's first letter.
 
 ### Accessibility (not optional)
@@ -67,8 +68,8 @@ Don't improvise a new colour, size, component or variant.
 ## Screen order (top half)
 
 Photo with Back / Save / Share → title, subtitle, time, difficulty → allergen row → recipe tags →
-"About this recipe" (collapsed) → Ingredients: servings stepper, "In your box", "From your pantry",
-"Add to shopping list" → "You'll need" → sticky "Let's cook".
+Ingredients: servings stepper, "In your box", "From your pantry", "Add to shopping list" →
+"You'll need" → "About this recipe" (collapsed) → sticky "Let's cook".
 
 ## How to work
 
