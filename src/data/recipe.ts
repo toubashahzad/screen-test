@@ -20,6 +20,10 @@ export type Ingredient = {
   allergen?: string;
 };
 
+import type { EquipmentIcon } from '../components/IngredientRow';
+
+export type Equipment = { name: string; icon: EquipmentIcon };
+
 export type Recipe = {
   title: string;
   subtitle: string;
@@ -30,7 +34,7 @@ export type Recipe = {
   description: string;
   inYourBox: Ingredient[];
   fromYourPantry: Ingredient[];
-  equipment: string[];
+  equipment: Equipment[];
 };
 
 export const recipe: Recipe = {
@@ -69,7 +73,13 @@ export const recipe: Recipe = {
     { name: 'Salt', amount: { quantity: null } },
     { name: 'Pepper', amount: { quantity: null } },
   ],
-  equipment: ['Kettle', 'Small pot with lid', 'Large pan', 'Small bowl', 'Kitchen paper'],
+  equipment: [
+    { name: 'Kettle', icon: 'kettle' },
+    { name: 'Small pot with lid', icon: 'pot' },
+    { name: 'Large pan', icon: 'pan' },
+    { name: 'Small bowl', icon: 'bowl' },
+    { name: 'Kitchen paper', icon: 'paper' },
+  ],
 };
 
 // ─── Scaling ─────────────────────────────────────────────────────────────────

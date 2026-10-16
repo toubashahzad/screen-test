@@ -137,7 +137,7 @@ export default function RecipeScreen() {
           <SectionHeader title="You'll need" />
           <View style={{ gap: space[3] }}>
             {recipe.equipment.map((item) => (
-              <IngredientRow key={item} variant="equipment" name={item} />
+              <IngredientRow key={item.name} variant="equipment" name={item.name} icon={item.icon} />
             ))}
           </View>
 

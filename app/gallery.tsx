@@ -155,7 +155,7 @@ export default function Gallery() {
           <IngredientRow variant="pantry" name="Salt" amount="to taste" />
         </Example>
         <Example name="equipment">
-          <IngredientRow variant="equipment" name="Small pot with lid" />
+          <IngredientRow variant="equipment" name="Small pot with lid" icon="pot" />
         </Example>
         <Example name="List: rows separated by space.3, no dividers">
           <View style={{ gap: space[3] }}>

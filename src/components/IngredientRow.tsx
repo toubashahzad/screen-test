@@ -4,6 +4,17 @@ import { color, radius, size, space, type } from '../theme/tokens';
 import { Tag } from './Tag';
 
 export type IngredientRowVariant = 'box' | 'pantry' | 'equipment';
+export type EquipmentIcon = 'kettle' | 'pot' | 'pan' | 'bowl' | 'paper';
+
+// One icon set only (CLAUDE.md): MaterialCommunityIcons, outline style.
+// The set has no frying pan; pot-mix-outline (shallow pan with spatula) is the closest.
+const EQUIPMENT_ICONS = {
+  kettle: 'kettle-outline',
+  pot: 'pot-steam-outline',
+  pan: 'pot-mix-outline',
+  bowl: 'bowl-outline',
+  paper: 'paper-roll-outline',
+} as const;
 
 export type IngredientRowProps = {
   /** From docs/content.md. */
@@ -15,6 +26,8 @@ export type IngredientRowProps = {
   /** e.g. "Milk". Shows the allergen marker. */
   allergen?: string;
   variant?: IngredientRowVariant;
+  /** Only for `equipment`: which line icon to show. */
+  icon?: EquipmentIcon;
 };
 
 // ─── Spoken amounts: "1½ tbsp" → "1 and a half tablespoons" ──────────────────
@@ -53,7 +66,7 @@ export function spokenAmount(amount: string): string {
  * One line in "In your box", "From your pantry" or "You'll need".
  * Name first, amount right under it. Screen readers hear one sentence: "Yoghurt, 150 grams, contains milk".
  */
-export function IngredientRow({ name, amount, image, allergen, variant = 'box' }: IngredientRowProps) {
+export function IngredientRow({ name, amount, image, allergen, variant = 'box', icon = 'pot' }: IngredientRowProps) {
   const isEquipment = variant === 'equipment';
   const showAmount = !isEquipment && !!amount;
 
@@ -74,7 +87,11 @@ export function IngredientRow({ name, amount, image, allergen, variant = 'box' }
       {/* Leading visual is decorative: the name already says what it is. */}
       <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
         {isEquipment ? (
-          <MaterialCommunityIcons name="pot-steam-outline" size={size.icon.default} color={color.text.secondary} />
+          <MaterialCommunityIcons
+            name={EQUIPMENT_ICONS[icon]}
+            size={size.icon.default}
+            color={color.text.secondary}
+          />
         ) : image ? (
           <Image source={image} style={styles.image} />
         ) : (
