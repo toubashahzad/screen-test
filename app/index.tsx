@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ScrollView, Share, Text, View } from 'react-native';
+import { Image, ScrollView, Share, Text, View } from 'react-native';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button } from '../src/components/Button';
@@ -63,11 +63,13 @@ export default function RecipeScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: color.bg.page }}>
       <ScrollView contentContainerStyle={{ paddingBottom: space[12] }}>
-        {/* Photo. Placeholder until the designer's assets/hero.jpg is added (docs/decisions.md). */}
-        <View
+        {/* Photo: decorative (the title says what the dish is). Credits in assets/CREDITS.md. */}
+        <Image
+          source={require('../assets/hero.jpg')}
+          resizeMode="cover"
           accessibilityElementsHidden
           importantForAccessibility="no-hide-descendants"
-          style={{ height: size.image.hero, backgroundColor: color.bg.subtle }}
+          style={{ width: '100%', height: size.image.hero, backgroundColor: color.bg.subtle }}
         />
 
         {/* Back on the left, Save and Share on the right, over the photo. */}

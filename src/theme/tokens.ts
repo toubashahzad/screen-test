@@ -6,8 +6,8 @@
  *   2. semantic – roles (color, space, size, radius, font, type, elevation, focus).
  *                 Components and screens use only these.
  *
- * Tokens marked "Added" are not in tokens.md yet; they were approved on 2026-10-16
- * and are logged in docs/decisions.md.
+ * Tokens marked "Added" were approved on 2026-10-16; they are in tokens.md (marked "Added")
+ * and logged in docs/decisions.md.
  */
 
 // ─── 1. Palette ────────────────────────────────────────────────────────────────

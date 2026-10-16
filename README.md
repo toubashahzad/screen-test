@@ -48,7 +48,7 @@ npm run web        # or open it in the browser
 
 - The recipe screen is the home page. The component gallery is at `/gallery`
   (in the browser: `http://localhost:8081/gallery`).
-- The dish photo is a placeholder until `assets/hero.jpg` is added.
+- The dish photo (`assets/hero.jpg`) is a free stand-in from Wikimedia Commons, see [Credits](#credits).
 
 Checks (both must pass before any change is merged):
 
@@ -56,3 +56,8 @@ Checks (both must pass before any change is merged):
 npx tsc --noEmit        # type check
 npm run check:tokens    # fails on any colour code or raw style number outside src/theme/
 ```
+
+## Credits
+
+Dish photo: [Parboiled rice with chicken, peppers, cucurbita, peas and tomato](https://commons.wikimedia.org/wiki/File:Parboiled_rice_with_chicken,_peppers,_cucurbita,_peas_and_tomato.jpg)
+by Petar Milošević, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons. Details in [`assets/CREDITS.md`](assets/CREDITS.md).

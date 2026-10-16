@@ -56,7 +56,7 @@ Don't improvise a new colour, size, component or variant.
   shopping list `basket-outline` · allergen `alert-circle-outline` · equipment: kettle `kettle-outline`,
   pot `pot-steam-outline`, pan `pot-mix-outline`, bowl `bowl-outline`, kitchen paper `paper-roll-outline` ·
   minus `minus` · plus `plus` · chevron `chevron-down` / `chevron-up`.
-- Images: the hero photo is `assets/hero.jpg` (supplied by the designer). Until real ingredient photos exist,
+- Images: the hero photo is `assets/hero.jpg` (supplied by the designer; for now a credited free stand-in, see `assets/CREDITS.md`). Until real ingredient photos exist,
   `IngredientRow` shows a placeholder: a circle in `color.bg.subtle` with the ingredient's first letter.
 
 ### Accessibility (not optional)

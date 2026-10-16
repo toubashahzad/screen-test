@@ -37,6 +37,7 @@ different colour, only one semantic token changes.
 | `amber.100` | `#FCEFD6` | pale amber |
 | `amber.300` | `#E7C27D` | soft amber |
 | `amber.800` | `#7A4300` | deep amber |
+| `black` | `#000000` | base for overlays and the sticky shadow (added 2026-10-16) |
 
 ### Semantic colours
 
@@ -60,6 +61,7 @@ WCAG AA needs **4.5:1** for normal text and **3:1** for large text and control o
 | `color.allergen.border` | `amber.300` | Soft outline so the allergen tag reads as different even in grayscale. |
 | `color.allergen.fg` | `amber.800` | Allergen text and icon. 7.0:1 on the amber fill. Paired with an icon and the word "Contains", never colour alone. |
 | `color.focus` | `stone.900` | 2 pt focus ring for keyboard and switch-control users; works on every background in this file. |
+| `color.focusOnPhoto` | `white` | Focus ring on the photo's icon buttons, where `stone.900` disappears on dark images. *(Added 2026-10-16.)* |
 | `color.overlay` | black at 45% | Fill behind icon buttons on the photo, so white icons stay readable on any image. |
 | `color.overlayPressed` | black at 60% | Pressed state of those buttons. |
 | `color.onOverlay` | `white` | Icons on the overlay. |
@@ -77,6 +79,7 @@ A **4-point scale**: every gap is a multiple of 4, so spacing feels consistent w
 | `space.6` | 24 | Between related blocks, e.g. title block → allergen row. |
 | `space.8` | 32 | **Between sections** (ingredients → "You'll need"). Clearly bigger than in-section gaps, so sections read as separate. |
 | `space.12` | 48 | Space at the bottom so the last content isn't hidden behind the sticky button. |
+| `space.tagSm` | 6 | Horizontal padding of a small Tag (was "space.1 + 2" in the Tag spec). Off the 4-pt scale on purpose, so tiny tags don't look cramped. *(Added 2026-10-16.)* |
 
 Size tokens:
 
@@ -86,6 +89,17 @@ Size tokens:
 | `size.row.ingredient` | 56 | Ingredient row height: fits a 40 pt photo plus two lines of text with breathing room. |
 | `size.image.ingredient` | 40 | Ingredient photo; big enough to recognise, small enough to keep the list scannable. |
 | `size.cta.height` | 52 | Sticky "Let's cook" button; larger than the minimum because it's the main action. |
+| `size.button.md` | 48 | Standard Button height ("Add to shopping list"); comfortably above the 44 minimum. *(Added)* |
+| `size.tag.md` / `size.tag.sm` | 28 / 22 | Tag heights, used as **minimum** heights so large text never clips. *(Added)* |
+| `size.icon.tagMd` / `size.icon.tagSm` | 14 / 12 | Icons inside md / sm Tags; sized to the 13 pt tag text. *(Added)* |
+| `size.icon.button` | 20 | Leading icon in a Button, e.g. the basket. *(Added)* |
+| `size.icon.default` | 24 | IconButton, stepper, chevron and equipment icons. *(Added)* |
+| `size.iconButton.onPhoto` | 40 | Visible circle of the photo's icon buttons; the tap area stays 44. *(Added)* |
+| `size.stepper.value` | 56 | Width of the stepper's number area; fits "6" at large text sizes. *(Added)* |
+| `size.image.hero` | 200 | Hero photo height. Short enough that the first ingredient shows on the first screen. *(Added)* |
+
+*Tokens marked "Added" were introduced while building the screen on 2026-10-16; reasons in
+[`docs/decisions.md`](../docs/decisions.md).*
 
 ## 3. Radius
 
@@ -116,8 +130,24 @@ Size tokens:
 
 All text sizes should scale with the phone's text-size setting (Dynamic Type / font scale).
 
+Font family names in code *(added 2026-10-16)*:
+
+| Token | Value |
+|---|---|
+| `font.family.headingBold` | Bricolage Grotesque Bold (`BricolageGrotesque_700Bold`) |
+| `font.family.bodyRegular` | Inter Regular (`Inter_400Regular`) |
+| `font.family.bodyMedium` | Inter Medium (`Inter_500Medium`) |
+| `font.family.bodySemiBold` | Inter SemiBold (`Inter_600SemiBold`) |
+
 ## 5. Elevation
 
 | Token | Value | Why |
 |---|---|---|
 | `elevation.sticky` | shadow: 0 −2, blur 12, black at 8% | Only for the sticky CTA bar, to show content scrolls underneath it. Everything else stays flat. |
+
+## 6. Focus *(added 2026-10-16)*
+
+| Token | Value | Why |
+|---|---|---|
+| `focus.width` | 2 | Thickness of the focus ring. |
+| `focus.offset` | 2 | Gap between a control and its focus ring, so the ring never touches the control's own border. |
