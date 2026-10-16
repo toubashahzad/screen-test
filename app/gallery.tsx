@@ -8,6 +8,7 @@ import { SectionHeader } from '../src/components/SectionHeader';
 import { ServingStepper } from '../src/components/ServingStepper';
 import { StickyCTA } from '../src/components/StickyCTA';
 import { Tag } from '../src/components/Tag';
+import { recipe } from '../src/data/recipe';
 import { color, space, type } from '../src/theme/tokens';
 
 const noop = () => {};
@@ -54,7 +55,17 @@ export default function Gallery() {
             <Tag label="Something different" />
           </View>
         </Example>
-        <Example name="Ingredient markers">
+        <Example name="equipment · md (You'll need)">
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: space[2] }}>
+            {recipe.equipment.map((item) => (
+              <Tag key={item.name} variant="equipment" label={item.name} icon={item.icon} />
+            ))}
+          </View>
+        </Example>
+        <Example name="equipment · sm">
+          <Tag variant="equipment" label="Kettle" icon="kettle" size="sm" />
+        </Example>
+                <Example name="Ingredient markers">
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: space[2] }}>
             <Tag label="Milk" variant="allergen" size="sm" />
             <Tag label="Mustard" variant="allergen" size="sm" />

@@ -135,9 +135,9 @@ export default function RecipeScreen() {
 
           {/* You'll need */}
           <SectionHeader title="You'll need" />
-          <View style={{ gap: space[3] }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: space[2] }}>
             {recipe.equipment.map((item) => (
-              <IngredientRow key={item.name} variant="equipment" name={item.name} icon={item.icon} />
+              <Tag key={item.name} variant="equipment" label={item.name} icon={item.icon} />
             ))}
           </View>
 

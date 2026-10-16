@@ -20,7 +20,7 @@ export type Ingredient = {
   allergen?: string;
 };
 
-import type { EquipmentIcon } from '../components/IngredientRow';
+import type { EquipmentIcon } from '../theme/icons';
 
 export type Equipment = { name: string; icon: EquipmentIcon };
 

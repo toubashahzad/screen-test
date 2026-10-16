@@ -2,19 +2,11 @@ import { Image, StyleSheet, Text, View, type ImageSourcePropType } from 'react-n
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { color, radius, size, space, type } from '../theme/tokens';
 import { Tag } from './Tag';
+import { EQUIPMENT_ICONS, type EquipmentIcon } from '../theme/icons';
+
+export type { EquipmentIcon };
 
 export type IngredientRowVariant = 'box' | 'pantry' | 'equipment';
-export type EquipmentIcon = 'kettle' | 'pot' | 'pan' | 'bowl' | 'paper';
-
-// One icon set only (CLAUDE.md): MaterialCommunityIcons, outline style.
-// The set has no frying pan; pot-mix-outline (shallow pan with spatula) is the closest.
-const EQUIPMENT_ICONS = {
-  kettle: 'kettle-outline',
-  pot: 'pot-steam-outline',
-  pan: 'pot-mix-outline',
-  bowl: 'bowl-outline',
-  paper: 'paper-roll-outline',
-} as const;
 
 export type IngredientRowProps = {
   /** From docs/content.md. */

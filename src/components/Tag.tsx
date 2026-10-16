@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { color, radius, size, space, type } from '../theme/tokens';
+import { EQUIPMENT_ICONS, type EquipmentIcon } from '../theme/icons';
 
-export type TagVariant = 'neutral' | 'allergen';
+export type TagVariant = 'neutral' | 'allergen' | 'equipment';
 export type TagSize = 'md' | 'sm';
 
 export type TagProps = {
@@ -11,6 +12,8 @@ export type TagProps = {
   variant?: TagVariant;
   /** `sm` is for inline use inside an IngredientRow. */
   size?: TagSize;
+  /** Only for `equipment`: which line icon to show. */
+  icon?: EquipmentIcon;
   /**
    * What screen readers say. Defaults to the label; an allergen row label
    * "Contains: Milk · Mustard" is read as "Contains allergens: Milk, Mustard".
@@ -33,11 +36,18 @@ function defaultAccessibilityLabel(label: string, variant: TagVariant): string {
 }
 
 /**
- * A small, non-interactive label: a recipe tag ("High Protein") or an allergen
- * flag ("Contains: Milk · Mustard"). Tags inform; they are not buttons.
+ * A small, non-interactive label: a recipe tag ("High Protein"), an allergen
+ * flag ("Contains: Milk · Mustard") or a piece of equipment ("Kettle"). Tags inform; they are not buttons.
  */
-export function Tag({ label, variant = 'neutral', size: tagSize = 'md', accessibilityLabel }: TagProps) {
+export function Tag({
+  label,
+  variant = 'neutral',
+  size: tagSize = 'md',
+  icon = 'pot',
+  accessibilityLabel,
+}: TagProps) {
   const isAllergen = variant === 'allergen';
+  const iconSize = tagSize === 'md' ? size.icon.tagMd : size.icon.tagSm;
 
   return (
     <View
@@ -46,13 +56,15 @@ export function Tag({ label, variant = 'neutral', size: tagSize = 'md', accessib
       accessibilityLabel={accessibilityLabel ?? defaultAccessibilityLabel(label, variant)}
       style={[styles.base, sizeStyles[tagSize], variantStyles[variant]]}
     >
+      {/* Icons are decorative: the text already says it. */}
       {isAllergen && (
         <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
-          <MaterialCommunityIcons
-            name="alert-circle-outline"
-            size={tagSize === 'md' ? size.icon.tagMd : size.icon.tagSm}
-            color={color.allergen.fg}
-          />
+          <MaterialCommunityIcons name="alert-circle-outline" size={iconSize} color={color.allergen.fg} />
+        </View>
+      )}
+      {variant === 'equipment' && (
+        <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+          <MaterialCommunityIcons name={EQUIPMENT_ICONS[icon]} size={iconSize} color={color.text.secondary} />
         </View>
       )}
       <Text style={[styles.label, { color: isAllergen ? color.allergen.fg : color.text.primary }]}>
@@ -85,6 +97,7 @@ const sizeStyles = StyleSheet.create({
 
 const variantStyles = StyleSheet.create({
   neutral: { backgroundColor: color.bg.subtle },
+  equipment: { backgroundColor: color.bg.subtle },
   allergen: {
     backgroundColor: color.allergen.bg,
     borderWidth: 1,

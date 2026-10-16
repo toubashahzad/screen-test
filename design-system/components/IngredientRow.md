@@ -2,6 +2,8 @@
 
 ## Purpose
 One line in the ingredient lists ("In your box", "From your pantry") or in "You'll need".
+(Since 2026-10-16 the screen shows "You'll need" as `Tag variant="equipment"` chips; the `equipment` row
+variant stays available, see docs/decisions.md.)
 Built for scanning while unpacking a box or cooking: name first, amount right under it.
 
 ## Anatomy

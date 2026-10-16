@@ -1,8 +1,8 @@
 # Tag
 
 ## Purpose
-A small, non-interactive label that describes the recipe ("High Protein") or flags an allergen
-("Contains: Milk · Mustard"). Tags inform; they are not buttons.
+A small, non-interactive label that describes the recipe ("High Protein"), flags an allergen
+("Contains: Milk · Mustard") or names a piece of equipment ("Kettle"). Tags inform; they are not buttons.
 
 ## Anatomy
 1. Container (fill, optional border)
@@ -13,13 +13,15 @@ A small, non-interactive label that describes the recipe ("High Protein") or fla
 | Prop | Type | Default | Notes |
 |---|---|---|---|
 | `label` | text | — | Required. Short: 1–3 words, or "Contains: …" for allergens. |
-| `variant` | `neutral` \| `allergen` | `neutral` | See Variants. |
+| `variant` | `neutral` \| `allergen` \| `equipment` | `neutral` | See Variants. |
 | `size` | `md` \| `sm` | `md` | `sm` is for inline use inside an IngredientRow. |
+| `icon` | `kettle` \| `pot` \| `pan` \| `bowl` \| `paper` | `pot` | Only for `equipment`. Mapping in CLAUDE.md. |
 
 ## Variants
 | Variant | Look | Use |
 |---|---|---|
 | `neutral` | `color.bg.subtle` fill, `color.text.primary` text, no icon | Recipe tags under the title. |
+| `equipment` | `color.bg.subtle` fill, `color.text.primary` text, leading equipment icon in `color.text.secondary` | The "You'll need" list, as a wrapping row of chips (added 2026-10-16, see docs/decisions.md). |
 | `allergen` | `color.allergen.bg` fill, 1 pt `color.allergen.border`, `color.allergen.fg` text, **warning icon** (leading) | The allergen row under the title ("Contains: Milk · Mustard") and the small marker on an ingredient ("Milk"). |
 
 ## Sizes
@@ -39,7 +41,8 @@ Static only (no pressed or focus state), because tags are not interactive.
 - Allergen tags never rely on colour alone: they always have the icon **and** the word "Contains"
   (row) or the allergen name (marker).
 - Screen readers read the allergen row as "Contains allergens: Milk, Mustard".
-- The icon is decorative (`accessibilityElementsHidden`) because the text already says it.
+- Icons are decorative (`accessibilityElementsHidden`) because the text already says it.
+- Equipment tags read as their name ("Kettle").
 
 ## Do
 - Keep labels short; wrap tags onto a second line with `space.2` gaps.
