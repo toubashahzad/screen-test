@@ -3,6 +3,7 @@ import { ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button } from '../src/components/Button';
 import { IconButton } from '../src/components/IconButton';
+import { ServingStepper } from '../src/components/ServingStepper';
 import { Tag } from '../src/components/Tag';
 import { color, space, type } from '../src/theme/tokens';
 
@@ -15,6 +16,7 @@ const noop = () => {};
 export default function Gallery() {
   const insets = useSafeAreaInsets();
   const [saved, setSaved] = useState(false);
+  const [servings, setServings] = useState(2);
 
   return (
     <ScrollView
@@ -117,6 +119,18 @@ export default function Gallery() {
         </Example>
         <Example name="secondary · md · fullWidth false">
           <Button label="Add to shopping list" icon="basket" fullWidth={false} onPress={noop} />
+        </Example>
+      </Section>
+
+      <Section title="ServingStepper">
+        <Example name="Interactive (starts at 2, range 1–6)">
+          <ServingStepper value={servings} onChange={setServings} />
+        </Example>
+        <Example name="At min (1): minus disabled">
+          <ServingStepper value={1} onChange={noop} />
+        </Example>
+        <Example name="At max (6): plus disabled">
+          <ServingStepper value={6} onChange={noop} />
         </Example>
       </Section>
     </ScrollView>
