@@ -54,7 +54,8 @@ Supporting changes:
 
 ## Build scope
 
-The top half only: photo down to the ingredients and "You'll need".
+Originally the top half only: photo down to the ingredients and "You'll need". On 2026-10-16 the scope
+widened to the whole page: steps, Mark as cooked, nutrition, Add to Health, My cookbook photos, Print in Share.
 
 Components: `Tag` (incl. an **allergen** variant), `IconButton`, `ServingStepper`,
 `IngredientRow`, `SectionHeader`, `StickyCTA`.

@@ -33,7 +33,7 @@ Don't improvise a new colour, size, component or variant.
 
 ### Components
 - Only these components exist: `Tag`, `IconButton`, `ServingStepper`, `IngredientRow`, `SectionHeader`,
-  `StickyCTA`, `Button`. One file each in `src/components/`, named exactly like the spec.
+  `StickyCTA`, `Button`, `InfoItem`, `Step`, `NutritionRow`. One file each in `src/components/`, named exactly like the spec.
 - Build `Button` before `StickyCTA`: StickyCTA places a primary Button inside it.
 - Each component implements **all** variants, states, props and accessibility notes from its spec, and
   nothing that isn't in the spec.
@@ -55,7 +55,9 @@ Don't improvise a new colour, size, component or variant.
   Mapping: back `arrow-left` · share `share-variant-outline` · save `bookmark-outline` / saved `bookmark` ·
   shopping list `basket-outline` · allergen `alert-circle-outline` · equipment: kettle `kettle-outline`,
   pot `pot-steam-outline`, pan `pot-mix-outline`, bowl `bowl-outline`, kitchen paper `paper-roll-outline` ·
-  minus `minus` · plus `plus` · chevron `chevron-down` / `chevron-up`.
+  minus `minus` · plus `plus` · chevron `chevron-down` / `chevron-up` · time `clock-outline` ·
+  difficulty `signal-cellular-2` · mark as cooked `check-circle-outline` · health `heart-pulse` ·
+  add a photo `camera-outline`.
 - Images: the hero photo is `assets/hero.jpg` (supplied by the designer; for now a credited free stand-in, see `assets/CREDITS.md`). Until real ingredient photos exist,
   `IngredientRow` shows a placeholder: a circle in `color.bg.subtle` with the ingredient's first letter.
 
@@ -65,11 +67,12 @@ Don't improvise a new colour, size, component or variant.
 - Text scales with the phone's font-size setting; layouts must not clip at large sizes.
 - Allergen information never relies on colour alone (icon + words).
 
-## Screen order (top half)
+## Screen order
 
-Photo with Back / Save / Share → title, subtitle, time, difficulty → allergen row → recipe tags →
-Ingredients: servings stepper, "In your box", "From your pantry", "Add to shopping list" →
-"You'll need" → "About this recipe" (collapsed) → sticky "Let's cook".
+Photo with Back / Save / Share (Print inside the Share menu) → title, subtitle → total time, difficulty →
+allergen row → recipe tags → Ingredients: servings stepper, "In your box", "From your pantry",
+"Add to shopping list" → "You'll need" → Steps → "Mark as cooked" → Nutrition → "Add to Health" →
+"My cookbook photos" + "Add a photo" → "About this recipe" (collapsed) → sticky "Let's cook".
 
 ## How to work
 

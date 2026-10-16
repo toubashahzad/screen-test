@@ -16,7 +16,7 @@ A text button for actions. Two variants make the hierarchy explicit:
 | `label` | text | — | Required. Verb first: "Let's cook", "Add to shopping list". |
 | `variant` | `primary` \| `secondary` | `secondary` | See Variants. |
 | `size` | `md` \| `lg` | `md` | `lg` only for the primary action in `StickyCTA`. |
-| `icon` | `basket` \| none | none | Optional leading icon, 20 pt, `space.2` before the label. |
+| `icon` | `basket` \| `check` \| `health` \| `camera` \| none | none | Optional leading icon, 20 pt, `space.2` before the label. `basket-outline`, `check-circle-outline`, `heart-pulse`, `camera-outline`. |
 | `fullWidth` | true/false | true | Fills the available width. |
 | `onPress` | action | — | Required. |
 
@@ -54,6 +54,8 @@ Both sizes: `radius.md`, horizontal padding `space.4`, label (and icon) centred.
 ## Do
 - Use `primary` once per screen; on this screen that's "Let's cook" inside `StickyCTA`.
 - Place "Add to shopping list" (`secondary`, `icon="basket"`) once, directly under "From your pantry".
+- Secondary page actions lower down: "Mark as cooked" (`check`) after the steps, "Add to Health" (`health`) after
+  nutrition, "Add a photo" (`camera`) under "My cookbook photos".
 
 ## Don't
 - Don't use two primary buttons on one screen; the main action stops being obvious.

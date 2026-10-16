@@ -51,7 +51,7 @@ Amounts scale with the serving stepper (2 → 4 doubles them).
 
 Kettle · Small pot with lid · Large pan · Small bowl · Kitchen paper
 
-## Steps (original, translated, for reference; outside the build scope)
+## Steps (original, translated; in the build since 2026-10-16, amounts without brackets, scaled to servings)
 
 1. Wash the vegetables, herbs and meat and pat the meat dry with kitchen paper. Heat 300 ml [600 ml] water
    in the kettle. You will also need 1 small pot (with lid), kitchen paper, 1 large pan and 1 small bowl.
@@ -73,7 +73,7 @@ Kettle · Small pot with lid · Large pan · Small bowl · Kitchen paper
    butter and divide between plates. Arrange the chicken and zucchini vegetables alongside, garnish with the
    parsley-mustard yoghurt and sprinkle with the remaining parsley. Enjoy your meal!
 
-## Lower on the page
+## Lower on the page (in the build since 2026-10-16)
 
 Cook mode (New) · Mark as cooked · Nutrition (2736 kJ · 654 kcal · Fat 17 g · of which saturates 7 g ·
 Carbohydrates 74 g · of which sugars 11 g · Fibre 6 g · Protein 50 g · Salt 2 g) · Add to Health ·

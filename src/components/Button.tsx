@@ -3,10 +3,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { color, radius, size, space, type } from '../theme/tokens';
 import { focusRingStyle } from '../theme/focusRing';
 import { useFocusRing } from '../hooks/useFocusRing';
+import { BUTTON_ICONS, type ButtonIcon } from '../theme/icons';
 
 export type ButtonVariant = 'primary' | 'secondary';
 export type ButtonSize = 'md' | 'lg';
-export type ButtonIcon = 'basket';
+export type { ButtonIcon };
 
 export type ButtonProps = {
   /** Verb first: "Let's cook", "Add to shopping list". */
@@ -23,9 +24,6 @@ export type ButtonProps = {
   /** What screen readers say, if it should say more than the label. Defaults to the label. */
   accessibilityLabel?: string;
 };
-
-// One icon set only (CLAUDE.md): MaterialCommunityIcons, outline style.
-const ICONS = { basket: 'basket-outline' } as const;
 
 /** A text button. `primary` for the one main action, `secondary` for everything else. */
 export function Button({
@@ -59,7 +57,7 @@ export function Button({
       {icon && (
         // Decorative: the label already says what the button does.
         <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
-          <MaterialCommunityIcons name={ICONS[icon]} size={size.icon.button} color={contentColor} />
+          <MaterialCommunityIcons name={BUTTON_ICONS[icon]} size={size.icon.button} color={contentColor} />
         </View>
       )}
       <Text style={[styles.label, { color: contentColor }]}>{label}</Text>

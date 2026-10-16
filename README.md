@@ -22,7 +22,7 @@ using only the tokens and components defined in this repo.
 | `app/index.tsx` | The coded recipe screen (top half) |
 | `app/gallery.tsx` | Component gallery: every component in every variant and state |
 | `src/theme/tokens.ts` | All token values in code (palette, then semantic) |
-| `src/components/` | The 7 components, one file each |
+| `src/components/` | The 10 components, one file each |
 | `src/data/recipe.ts` | The recipe content, with amounts for 2 servings and the scaling function |
 | [`docs/decisions.md`](docs/decisions.md) | Design decisions that weren't in the specs |
 | `screenshots/` | Screenshots of the screen and the gallery |
