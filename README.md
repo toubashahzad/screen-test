@@ -16,9 +16,9 @@ using only the tokens and components defined in this repo.
 | [`docs/analysis.md`](docs/analysis.md) | Friction points (as hypotheses) and the chosen direction |
 | [`docs/content.md`](docs/content.md) | The recipe content in English, used as the screen's data |
 | [`docs/screens/`](docs/screens/) | The original German screens next to an English translation |
-| `design-system/tokens.md` | Colour, spacing, radius and type tokens, each with a reason *(coming next)* |
-| `design-system/components/` | One spec per component *(coming)* |
-| `CLAUDE.md` | Rules Claude Code follows: build only from tokens and components *(coming)* |
+| [`design-system/tokens.md`](design-system/tokens.md) | Colour, spacing, radius, type and elevation tokens, each with a reason |
+| [`design-system/components/`](design-system/components/) | One spec per component: Tag, IconButton, ServingStepper, IngredientRow, SectionHeader, StickyCTA, Button |
+| [`CLAUDE.md`](CLAUDE.md) | Rules Claude Code follows: build only from tokens and components |
 | `app/` | The coded screen *(coming)* |
 
 ## Process
