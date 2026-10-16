@@ -8,8 +8,9 @@ So the rules below matter more than speed or cleverness.
 
 1. `design-system/tokens.md`: every colour, spacing, radius, size, type style and shadow allowed.
 2. `design-system/components/*.md`: the only components allowed, and exactly how each looks and behaves.
-3. `docs/content.md`: the only content allowed (recipe text, ingredients, amounts, allergens, equipment).
-4. `docs/analysis.md`: why the screen is ordered and designed this way. Use it to resolve intent, not styling.
+3. `design-system/screens/*.md`: how each screen is laid out and behaves (`RecipeDetail.md` = `app/index.tsx`).
+4. `docs/content.md`: the only content allowed (recipe text, ingredients, amounts, allergens, equipment).
+5. `docs/analysis.md`: why the screen is ordered and designed this way. Use it to resolve intent, not styling.
 
 `docs/screens/` contains screenshots of the **current** app. They are reference for content and context only.
 Never copy their layout, colours, fonts or imagery.
@@ -69,10 +70,8 @@ Don't improvise a new colour, size, component or variant.
 
 ## Screen order
 
-Photo with Back / Save / Share (Print inside the Share menu) → title, subtitle → total time, difficulty →
-allergen row → recipe tags → Ingredients: servings stepper, "In your box", "From your pantry",
-"Add to shopping list" → "You'll need" → Steps → "Mark as cooked" → Nutrition → "Add to Health" →
-"My cookbook photos" + "Add a photo" → "About this recipe" (collapsed) → sticky "Let's cook".
+Defined in `design-system/screens/RecipeDetail.md` (layout table, spacing, behaviour, states).
+Change the spec first, then the code.
 
 ## How to work
 

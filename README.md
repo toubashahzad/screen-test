@@ -18,6 +18,7 @@ using only the tokens and components defined in this repo.
 | [`docs/screens/`](docs/screens/) | The original German screens next to an English translation |
 | [`design-system/tokens.md`](design-system/tokens.md) | Colour, spacing, radius, type and elevation tokens, each with a reason |
 | [`design-system/components/`](design-system/components/) | One spec per component: Tag, IconButton, ServingStepper, IngredientRow, SectionHeader, StickyCTA, Button |
+| [`design-system/screens/RecipeDetail.md`](design-system/screens/RecipeDetail.md) | Screen spec: the page's layout, spacing, behaviour and states |
 | [`CLAUDE.md`](CLAUDE.md) | Rules Claude Code follows: build only from tokens and components |
 | `app/index.tsx` | The coded recipe screen (top half) |
 | `app/gallery.tsx` | Component gallery: every component in every variant and state |
