@@ -1,8 +1,11 @@
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { IconButton } from '../src/components/IconButton';
 import { Tag } from '../src/components/Tag';
 import { color, space, type } from '../src/theme/tokens';
+
+const noop = () => {};
 
 /**
  * Component gallery: every component in every variant, size and state.
@@ -10,6 +13,7 @@ import { color, space, type } from '../src/theme/tokens';
  */
 export default function Gallery() {
   const insets = useSafeAreaInsets();
+  const [saved, setSaved] = useState(false);
 
   return (
     <ScrollView
@@ -48,6 +52,46 @@ export default function Gallery() {
             <Tag label="Milk" variant="allergen" size="sm" />
             <Tag label="Mustard" variant="allergen" size="sm" />
           </View>
+        </Example>
+      </Section>
+
+      <Section title="IconButton">
+        <Example name="onPhoto · Back, Save, Share (dark block stands in for the photo)">
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              padding: space[4],
+              backgroundColor: color.text.primary,
+            }}
+          >
+            <IconButton variant="onPhoto" icon="back" accessibilityLabel="Back" onPress={noop} />
+            <View style={{ flexDirection: 'row', gap: space[2] }}>
+              <IconButton
+                variant="onPhoto"
+                icon="save"
+                accessibilityLabel="Save recipe"
+                selected={saved}
+                onPress={() => setSaved((s) => !s)}
+              />
+              <IconButton variant="onPhoto" icon="share" accessibilityLabel="Share recipe" onPress={noop} />
+            </View>
+          </View>
+        </Example>
+        <Example name="onPhoto · Save selected">
+          <View style={{ flexDirection: 'row', padding: space[4], backgroundColor: color.text.primary }}>
+            <IconButton variant="onPhoto" icon="save" accessibilityLabel="Save recipe" selected onPress={noop} />
+          </View>
+        </Example>
+        <Example name="outline · Back, Save, Share">
+          <View style={{ flexDirection: 'row', gap: space[2] }}>
+            <IconButton icon="back" accessibilityLabel="Back" onPress={noop} />
+            <IconButton icon="save" accessibilityLabel="Save recipe" onPress={noop} />
+            <IconButton icon="share" accessibilityLabel="Share recipe" onPress={noop} />
+          </View>
+        </Example>
+        <Example name="outline · Save selected">
+          <IconButton icon="save" accessibilityLabel="Save recipe" selected onPress={noop} />
         </Example>
       </Section>
     </ScrollView>
