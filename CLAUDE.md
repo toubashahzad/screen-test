@@ -67,8 +67,8 @@ Don't improvise a new colour, size, component or variant.
 ## Screen order (top half)
 
 Photo with Back / Save / Share → title, subtitle, time, difficulty → allergen row → recipe tags →
-"About this recipe" (collapsed) → Ingredients: servings stepper, "In your box", "From your pantry",
-"Add to shopping list" → "You'll need" → sticky "Let's cook".
+Ingredients: servings stepper, "In your box", "From your pantry", "Add to shopping list" →
+"You'll need" → "About this recipe" (collapsed) → sticky "Let's cook".
 
 ## How to work
 

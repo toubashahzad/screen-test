@@ -27,3 +27,5 @@ Decisions that aren't in the specs, with the reason. Newest at the bottom.
 | 2026-10-16 | Allergen row shows "Contains: Milk · Mustard"; the caption under it shows "Milk (incl. lactose) · May contain traces of other allergens" and the product-label note. | Keeps the tag short (Tag spec) while all allergen wording from content.md stays visible. |
 | 2026-10-16 | The description ends with "…" as in content.md. | content.md only has the cut-off text; nothing may be invented. |
 | 2026-10-16 | Amounts below ¼ never show as 0 (minimum ¼ for tbsp/pieces, 1 for g/ml). | "0 tbsp butter" would read as "leave it out". |
+| 2026-10-16 | Hero photo height `size.image.hero` 280 → 200. | Gets the ingredients closer to the first screen (analysis friction point #1). |
+| 2026-10-16 | "About this recipe" moved from above Ingredients to below "You'll need" (changes the CLAUDE.md screen order). | The description is the least-used block while cooking; above Ingredients it pushed them down and left an uneven 48 pt gap. |

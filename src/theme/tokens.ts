@@ -93,7 +93,7 @@ export const size = {
   row: { ingredient: 56 },
   image: {
     ingredient: 40,
-    hero: 280, // Added: hero photo height
+    hero: 200, // Added: hero photo height (shortened from 280 so ingredients start sooner)
   },
   cta: { height: 52 },
   button: { md: 48 }, // Added: Button md height

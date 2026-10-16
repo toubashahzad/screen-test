@@ -25,8 +25,9 @@ const notBuiltYet = () => {};
 /**
  * Recipe detail screen, top half. Order (CLAUDE.md):
  * photo with Back / Save / Share → title, subtitle, time, difficulty → allergen row → recipe tags →
- * "About this recipe" (collapsed) → Ingredients: stepper, "In your box", "From your pantry",
- * "Add to shopping list" → "You'll need" → sticky "Let's cook".
+ * Ingredients: stepper, "In your box", "From your pantry", "Add to shopping list" → "You'll need" →
+ * "About this recipe" (collapsed) → sticky "Let's cook".
+ * "About this recipe" moved below "You'll need" on 2026-10-16 (docs/decisions.md).
  */
 export default function RecipeScreen() {
   const insets = useSafeAreaInsets();
@@ -118,15 +119,6 @@ export default function RecipeScreen() {
             ))}
           </View>
 
-          {/* About this recipe: collapsed by default */}
-          <SectionHeader
-            title="About this recipe"
-            collapsible
-            expanded={aboutOpen}
-            onToggle={() => setAboutOpen((open) => !open)}
-          />
-          {aboutOpen && <Text style={[type.body, { color: color.text.primary }]}>{recipe.description}</Text>}
-
           {/* Ingredients */}
           <SectionHeader title="Ingredients" />
           <ServingStepper value={servings} min={MIN_SERVINGS} max={MAX_SERVINGS} onChange={setServings} />
@@ -148,6 +140,15 @@ export default function RecipeScreen() {
               <IngredientRow key={item} variant="equipment" name={item} />
             ))}
           </View>
+
+          {/* About this recipe: collapsed by default, last so it doesn't push the ingredients down */}
+          <SectionHeader
+            title="About this recipe"
+            collapsible
+            expanded={aboutOpen}
+            onToggle={() => setAboutOpen((open) => !open)}
+          />
+          {aboutOpen && <Text style={[type.body, { color: color.text.primary }]}>{recipe.description}</Text>}
         </View>
       </ScrollView>
 
