@@ -24,3 +24,6 @@ Decisions that aren't in the specs, with the reason. Newest at the bottom.
 | 2026-10-16 | New token `color.focusOnPhoto` = `white`, used for the focus ring of `onPhoto` IconButtons. | `color.focus` (near-black) is invisible on dark photos. |
 | 2026-10-16 | SectionHeader: meta and chevron sit on the right; chevron 24 pt in `color.text.primary`; the spacing above/below is part of the header; the pressed background covers the row only. | Not specified in the spec. |
 | 2026-10-16 | A collapsible SectionHeader is a header containing a button with an expanded/collapsed state. | React Native allows one role per element. Web screen readers get both; on iOS/Android the button and its state win over "heading". |
+| 2026-10-16 | Allergen row shows "Contains: Milk · Mustard"; the caption under it shows "Milk (incl. lactose) · May contain traces of other allergens" and the product-label note. | Keeps the tag short (Tag spec) while all allergen wording from content.md stays visible. |
+| 2026-10-16 | The description ends with "…" as in content.md. | content.md only has the cut-off text; nothing may be invented. |
+| 2026-10-16 | Amounts below ¼ never show as 0 (minimum ¼ for tbsp/pieces, 1 for g/ml). | "0 tbsp butter" would read as "leave it out". |
