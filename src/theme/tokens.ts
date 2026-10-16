@@ -70,6 +70,7 @@ export const color = {
     fg: palette.amber[800],
   },
   focus: palette.stone[900],
+  focusOnPhoto: palette.white, // Added: focus ring on the photo, where stone.900 disappears
   overlay: blackAt(0.45),
   overlayPressed: blackAt(0.6),
   onOverlay: palette.white,

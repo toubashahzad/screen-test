@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Button } from '../src/components/Button';
 import { IconButton } from '../src/components/IconButton';
 import { Tag } from '../src/components/Tag';
 import { color, space, type } from '../src/theme/tokens';
@@ -92,6 +93,30 @@ export default function Gallery() {
         </Example>
         <Example name="outline · Save selected">
           <IconButton icon="save" accessibilityLabel="Save recipe" selected onPress={noop} />
+        </Example>
+      </Section>
+
+      <Section title="Button">
+        <Example name="primary · lg (the one main action)">
+          <Button
+            variant="primary"
+            size="lg"
+            label="Let's cook"
+            accessibilityLabel="Let's cook, opens step-by-step cook mode"
+            onPress={noop}
+          />
+        </Example>
+        <Example name="primary · md">
+          <Button variant="primary" label="Let's cook" onPress={noop} />
+        </Example>
+        <Example name="secondary · md · basket icon">
+          <Button label="Add to shopping list" icon="basket" onPress={noop} />
+        </Example>
+        <Example name="secondary · lg">
+          <Button size="lg" label="Add to shopping list" onPress={noop} />
+        </Example>
+        <Example name="secondary · md · fullWidth false">
+          <Button label="Add to shopping list" icon="basket" fullWidth={false} onPress={noop} />
         </Example>
       </Section>
     </ScrollView>

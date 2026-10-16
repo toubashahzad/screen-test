@@ -71,7 +71,12 @@ export function IconButton({
             size={size.icon.default}
             color={onPhoto ? color.onOverlay : color.text.primary}
           />
-          {focused && <View pointerEvents="none" style={focusRingStyle(containerRadius)} />}
+          {focused && (
+            <View
+              pointerEvents="none"
+              style={focusRingStyle(containerRadius, onPhoto ? color.focusOnPhoto : color.focus)}
+            />
+          )}
         </View>
       )}
     </Pressable>

@@ -5,8 +5,9 @@ import { color, focus } from './tokens';
  * Style for the 2 pt focus ring drawn `focus.offset` outside a control.
  * Render it as an absolutely positioned, non-interactive View inside the control.
  * `controlRadius` is the corner radius of the control it surrounds.
+ * `ringColor` defaults to `color.focus`; on the photo use `color.focusOnPhoto`.
  */
-export function focusRingStyle(controlRadius: number): ViewStyle {
+export function focusRingStyle(controlRadius: number, ringColor: string = color.focus): ViewStyle {
   const outset = focus.offset + focus.width;
   return {
     position: 'absolute',
@@ -15,7 +16,7 @@ export function focusRingStyle(controlRadius: number): ViewStyle {
     left: -outset,
     right: -outset,
     borderWidth: focus.width,
-    borderColor: color.focus,
+    borderColor: ringColor,
     borderRadius: controlRadius + outset,
   };
 }

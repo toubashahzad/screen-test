@@ -21,3 +21,4 @@ Decisions that aren't in the specs, with the reason. Newest at the bottom.
 | 2026-10-16 | Expo SDK 58, routes in `app/` (CLAUDE.md), not `src/app/` (Expo's newer default). | CLAUDE.md names `app/index.tsx` and `app/gallery.tsx`. |
 | 2026-10-16 | Shared focus-ring helpers: `src/theme/focusRing.ts` (ring style from tokens) and `src/hooks/useFocusRing.ts` (on web the ring shows for keyboard focus only, not after a click). | Four components need the same 2 pt ring. These are helpers, not components; nothing visible exists outside the 7 components. |
 | 2026-10-16 | `app/gallery.tsx` has no `.md` spec. | It's a developer tool for viewing the components (like Storybook), not part of the design system or the recipe screen. |
+| 2026-10-16 | New token `color.focusOnPhoto` = `white`, used for the focus ring of `onPhoto` IconButtons. | `color.focus` (near-black) is invisible on dark photos. |
